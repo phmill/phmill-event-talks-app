@@ -79,6 +79,30 @@ h1 {
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
+    margin-bottom: 25px;
+}
+
+.speaker-filter-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--text-secondary);
+}
+
+#speakerFilter {
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    outline: none;
+    cursor: pointer;
+}
+
+#speakerFilter:focus {
+    border-color: var(--accent-color);
 }
 
 .tag-btn {

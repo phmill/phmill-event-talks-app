@@ -1,8 +1,10 @@
 let allTalks = [];
 let currentCategory = 'All';
+let currentSpeaker = 'All';
 
 const scheduleElement = document.getElementById('schedule');
 const categoryTagsElement = document.getElementById('categoryTags');
+const speakerFilterElement = document.getElementById('speakerFilter');
 const searchInput = document.getElementById('searchInput');
 
 async function fetchTalks() {
@@ -10,6 +12,7 @@ async function fetchTalks() {
         const response = await fetch('/api/talks');
         allTalks = await response.json();
         renderCategories();
+        renderSpeakers();
         renderSchedule();
     } catch (error) {
         console.error('Error fetching talks:', error);
@@ -26,11 +29,22 @@ function renderCategories() {
     `).join('');
 }
 
+function renderSpeakers() {
+    const speakers = [...new Set(allTalks.flatMap(talk => talk.speakers))].sort();
+    speakerFilterElement.innerHTML = '<option value="All">All Speakers</option>' + 
+        speakers.map(speaker => `<option value="${speaker}">${speaker}</option>`).join('');
+}
+
 function filterByCategory(category) {
     currentCategory = category;
     renderCategories();
     renderSchedule();
 }
+
+speakerFilterElement.addEventListener('change', (e) => {
+    currentSpeaker = e.target.value;
+    renderSchedule();
+});
 
 searchInput.addEventListener('input', () => {
     renderSchedule();
@@ -42,17 +56,18 @@ function renderSchedule() {
     // Filter talks
     const filteredTalks = allTalks.filter(talk => {
         const matchesCategory = currentCategory === 'All' || talk.categories.includes(currentCategory);
+        const matchesSpeaker = currentSpeaker === 'All' || talk.speakers.includes(currentSpeaker);
         const matchesSearch = talk.title.toLowerCase().includes(searchTerm) || 
                               talk.speakers.join(', ').toLowerCase().includes(searchTerm) ||
                               talk.categories.join(', ').toLowerCase().includes(searchTerm);
-        return matchesCategory && matchesSearch;
+        return matchesCategory && matchesSpeaker && matchesSearch;
     });
 
     scheduleElement.innerHTML = '';
 
-    // If search is active or category filtered, don't show the lunch break in the middle
+    // If any filter is active, don't show the lunch break in the middle
     // unless it's the full schedule
-    const isFiltered = searchTerm !== '' || currentCategory !== 'All';
+    const isFiltered = searchTerm !== '' || currentCategory !== 'All' || currentSpeaker !== 'All';
 
     filteredTalks.forEach((talk, index) => {
         // Add talk card
