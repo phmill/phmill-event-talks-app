@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "Scaling AI Infrastructure for Global Resilience",
+    "speakers": ["Sarah Chen", "Marcus Thorne"],
+    "categories": ["AI", "Cloud Native", "Infrastructure"],
+    "startTime": "10:00 AM",
+    "endTime": "11:00 AM",
+    "description": "Exploration of how to scale AI training and inference pipelines globally while ensuring high availability and fault tolerance in hybrid cloud environments."
+  },
+  {
+    "id": 2,
+    "title": "The Future of DevSecOps: Automated Security in CI/CD",
+    "speakers": ["Elena Rodriguez"],
+    "categories": ["Security", "DevSecOps"],
+    "startTime": "11:10 AM",
+    "endTime": "12:10 PM",
+    "description": "Deep dive into automated vulnerability scanning and security policy enforcement directly within modern development workflows."
+  },
+  {
+    "id": 3,
+    "title": "Rust for Mission-Critical Systems: Lessons Learned",
+    "speakers": ["Kenji Takahashi"],
+    "categories": ["Rust", "Systems Programming"],
+    "startTime": "12:20 PM",
+    "endTime": "1:20 PM",
+    "description": "A technical retrospective on migrating critical system components from C++ to Rust, focusing on memory safety and performance benchmarks."
+  },
+  {
+    "id": 4,
+    "title": "Event-Driven Microservices at Extreme Scale",
+    "speakers": ["John Miller", "Sophie Dubois"],
+    "categories": ["Microservices", "Serverless"],
+    "startTime": "2:30 PM",
+    "endTime": "3:30 PM",
+    "description": "Strategies for managing state and consistency in distributed systems handling millions of events per second using Kafka and modern orchestrators."
+  },
+  {
+    "id": 5,
+    "title": "Quantum Computing: Preparing Your Cryptography Today",
+    "speakers": ["Dr. Amara Okoro"],
+    "categories": ["Cybersecurity", "Quantum"],
+    "startTime": "3:40 PM",
+    "endTime": "4:40 PM",
+    "description": "Understanding the timeline for post-quantum cryptography and how to start implementing lattice-based algorithms in current security stacks."
+  },
+  {
+    "id": 6,
+    "title": "Kubernetes in 2026: Beyond Containers",
+    "speakers": ["Priya Sharma"],
+    "categories": ["Cloud Native", "Kubernetes"],
+    "startTime": "4:50 PM",
+    "endTime": "5:50 PM",
+    "description": "An overview of how Kubernetes has evolved to manage heterogeneous workloads, from WebAssembly modules to edge computing nodes."
+  }
+]
